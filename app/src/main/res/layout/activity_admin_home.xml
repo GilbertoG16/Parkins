@@ -7,25 +7,71 @@
     tools:context=".Admin.AdminHome"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/lblName"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hola admin"
-        />
-    <TextView
-        android:id="@+id/lblId"
-        android:layout_width="match_parent"
+        >
+        <TextView
+            android:id="@+id/TituloNombre"
+            android:text="Nombre"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/lblName"
+            android:textSize="20dp"
+            android:layout_below="@id/TituloNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            />
+        <TextView
+            android:id="@+id/TituloCedula"
+            android:textSize="25dp"
+            android:layout_alignParentEnd="true"
+            android:text="Cédula"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/lblId"
+            android:textSize="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/TituloCedula"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="id"
+            />
+        <TextView
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/TituloUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usuario"
+            />
+        <TextView
+            android:textSize="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/TituloUser"
+            android:id="@+id/lblUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User"
+            />
+    </RelativeLayout>
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        />
+        android:onClick="Logout"
+        android:text="Cerrar sesión"/>
+
     <TextView
-        android:id="@+id/lblUser"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hola admin"
-        />
-    <TextView
+        android:layout_marginTop="25dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Crear eventos nuevos"
@@ -55,17 +101,9 @@
         android:text="Crear"
         android:textSize="25dp"
         android:onClick="GuardarEvento" />
+
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="Logout"
-        android:text="Logout"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="CrearEvento"
-        android:text="Crear evento"/>
-    <Button
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ver asistencias"

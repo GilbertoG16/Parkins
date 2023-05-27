@@ -97,7 +97,7 @@ public class ClientHome extends AppCompatActivity {
                 asistencias.add(asistencia);
             }
         }catch(Exception e){
-            this.Notify("Errorcito => "+e.getMessage());
+
         }
 
         return asistencias;
@@ -120,14 +120,13 @@ public class ClientHome extends AppCompatActivity {
         }
     }
     public void Tocar(){
-        String retornar = "";
+
         lstEventos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Eventos eventoSeleccionado = (Eventos) parent.getItemAtPosition(position);
-                String retornar = eventoSeleccionado.getNombre();
-                Toast.makeText(getApplicationContext(),retornar,Toast.LENGTH_LONG).show();
-                GuardarAsistencia(retornar);
+
+                GuardarAsistencia(eventoSeleccionado.getNombre());
             }
         });
 
@@ -148,18 +147,20 @@ public class ClientHome extends AppCompatActivity {
 
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
     }
-    public void GuardarAsistencia(String retornar){
+    public void GuardarAsistencia(String evento){
+        SharedPreferences usuarioLogueado = getSharedPreferences("Login", Context.MODE_PRIVATE);
+
         try {
             List<Asistencias> asistencias = FileToListA();
 
 
-                String usuarioExistente = checkSiEstaRegistrado(asistencias, user.getText().toString(),retornar);
+                String usuarioExistente = checkSiEstaRegistrado(asistencias, usuarioLogueado.getString("user",""),evento);
                 if (usuarioExistente != null) {
                     Toast.makeText(this, usuarioExistente, Toast.LENGTH_LONG).show();
                 } else {
                     String guardar =
-                            user.getText().toString() + "|" +
-                                    retornar + "~" ;
+                            usuarioLogueado.getString("user","") + "|" +
+                                    evento + "~" ;
 
 
                     int res = GuardarArchivoAsistenciaEvento(guardar);

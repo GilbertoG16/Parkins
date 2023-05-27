@@ -26,18 +26,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         InicializarControles();
+        ValidarLogin();
     }
 
-    private void ValidarLogin(String userType){
+    private void ValidarLogin(){
         SharedPreferences usuarioLogueado = getSharedPreferences("Login", Context.MODE_PRIVATE);
 
         String usuario = usuarioLogueado.getString("user","");
 
         if(!usuario.equals("")){
             Intent intent;
-            if(userType.equals("Admin")){
+            if(usuarioLogueado.getString("userType","").equals("Admin")){
                 intent = new Intent(getApplicationContext(), AdminHome.class);
-            }else if(userType.equals("Cliente")){
+            }else if(usuarioLogueado.getString("userType","").equals("Cliente")){
                 intent = new Intent(getApplicationContext(), ClientHome.class);
             }else{
                 intent = new Intent(getApplicationContext(), MainActivity.class);
@@ -75,10 +76,10 @@ public class MainActivity extends AppCompatActivity {
                     logueado = true;
 
                     if(usuario.getUserType().equals("Admin")){
-                        ValidarLogin(usuario.getUserType());
+                        startActivity(new Intent(getApplicationContext(), AdminHome.class));
 
                     }else if(usuario.getUserType().equals("Cliente")){
-                        ValidarLogin(usuario.getUserType());
+                        startActivity(new Intent(getApplicationContext(), ClientHome.class));
 
                     }
 

@@ -53,7 +53,6 @@ public class AdminHome extends AppCompatActivity {
     public void GuardarEvento(View v){
         try {
             List<Eventos> eventos = FileToList();
-            boolean existeArchivo = VerificarExistenciaArchivo();
 
             if (nombre.length() == 0 || lugar.length() == 0) {
                 Toast.makeText(this, "bro faltan datos akii io qué xopa bro", Toast.LENGTH_LONG).show();
@@ -124,20 +123,6 @@ public class AdminHome extends AppCompatActivity {
             Log.e("Ficheros", "Error al escribir fichero a memoria interna"+e.getMessage());
             return 0;
         }
-    }
-    private boolean VerificarExistenciaArchivo() {
-        try {
-            BufferedReader bf =
-                    new BufferedReader(new InputStreamReader(openFileInput("eventos.txt")));
-            String texto = bf.readLine();
-            bf.close();
-
-            if(!texto.isEmpty())
-                return true;
-        }catch(Exception e){
-            return false;
-        }
-        return false;
     }
     private List<Eventos> FileToList() {
         List<Eventos> eventos = new ArrayList<Eventos>();
