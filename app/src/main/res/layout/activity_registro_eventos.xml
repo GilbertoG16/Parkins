@@ -4,42 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin.AdminHome"
+    tools:context=".Admin.RegistroEventos"
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/lblName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hola admin"
-        />
-    <TextView
-        android:id="@+id/lblId"
+        android:text="Crear eventos nuevos"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:gravity="center"/>
+    <EditText
+        android:id="@+id/txtNombreEvento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""
+        android:hint="Nombre del evento"
         />
-    <TextView
-        android:id="@+id/lblUser"
+    <EditText
+        android:id="@+id/txtLugarEvento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hola admin"
+        android:hint="Lugar del evento"
         />
-    <Button
-        android:layout_width="wrap_content"
+    <TimePicker
+        android:id="@+id/tmHora"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="Logout"
-        android:text="Logout"/>
+        android:timePickerMode="spinner" />
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="CrearEvento"
-        android:text="Crear evento"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ver asistencias"
-        android:onClick="VerAsistencias"
-        />
+        android:text="Crear"
+        android:textSize="25dp"
+        android:onClick="GuardarEvento" />
 
 </LinearLayout>

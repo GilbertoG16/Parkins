@@ -4,11 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Cliente.ClientHome">
+    tools:context=".Cliente.ClientHome"
+    android:orientation="vertical">
 
     <TextView
+        android:id="@+id/lblNameC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hola cliente"
-     />
+        android:text=""
+        />
+    <TextView
+        android:id="@+id/lblIdC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        />
+    <TextView
+        android:id="@+id/lblUserC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hola Cliente"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="Logout"
+        android:text="Logout"/>
+    <ListView
+        android:clickable="true"
+        android:id="@+id/lstEventos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
 </LinearLayout>

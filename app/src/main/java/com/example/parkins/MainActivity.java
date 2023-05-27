@@ -28,6 +28,24 @@ public class MainActivity extends AppCompatActivity {
         InicializarControles();
     }
 
+    private void ValidarLogin(String userType){
+        SharedPreferences usuarioLogueado = getSharedPreferences("Login", Context.MODE_PRIVATE);
+
+        String usuario = usuarioLogueado.getString("user","");
+
+        if(!usuario.equals("")){
+            Intent intent;
+            if(userType.equals("Admin")){
+                intent = new Intent(getApplicationContext(), AdminHome.class);
+            }else if(userType.equals("Cliente")){
+                intent = new Intent(getApplicationContext(), ClientHome.class);
+            }else{
+                intent = new Intent(getApplicationContext(), MainActivity.class);
+            }
+            startActivity(intent);
+        }
+    }
+
 
     private void InicializarControles() {
         name = (EditText)findViewById(R.id.txtUser);
@@ -44,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
             for(Usuarios usuario : usuarios){
 
                 if(nombreIngresado.equals(usuario.getUser())&& contraseñaIngresado.equals(usuario.getPassword())){
-                    SharedPreferences login = getSharedPreferences("Login", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = login.edit();
+                    SharedPreferences user = getSharedPreferences("Login", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = user.edit();
                     editor.putString("name",usuario.getName());
                     editor.putString("id",usuario.getId());
                     editor.putInt("age",usuario.getAge());
@@ -57,10 +75,11 @@ public class MainActivity extends AppCompatActivity {
                     logueado = true;
 
                     if(usuario.getUserType().equals("Admin")){
-                        startActivity(new Intent(this, AdminHome.class));
+                        ValidarLogin(usuario.getUserType());
 
                     }else if(usuario.getUserType().equals("Cliente")){
-                        startActivity(new Intent(this, ClientHome.class));
+                        ValidarLogin(usuario.getUserType());
+
                     }
 
                     break;
