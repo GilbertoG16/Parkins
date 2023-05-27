@@ -126,6 +126,7 @@ public class ClientHome extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Eventos eventoSeleccionado = (Eventos) parent.getItemAtPosition(position);
                 String retornar = eventoSeleccionado.getNombre();
+                Toast.makeText(getApplicationContext(),retornar,Toast.LENGTH_LONG).show();
                 GuardarAsistencia(retornar);
             }
         });

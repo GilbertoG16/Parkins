@@ -25,6 +25,36 @@
         android:layout_height="wrap_content"
         android:text="Hola admin"
         />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear eventos nuevos"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:gravity="center"/>
+    <EditText
+        android:id="@+id/txtNombreEvento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del evento"
+        />
+    <EditText
+        android:id="@+id/txtLugarEvento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Lugar del evento"
+        />
+    <TimePicker
+        android:id="@+id/tmHora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:timePickerMode="spinner" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear"
+        android:textSize="25dp"
+        android:onClick="GuardarEvento" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

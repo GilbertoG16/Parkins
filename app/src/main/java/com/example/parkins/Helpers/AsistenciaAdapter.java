@@ -21,12 +21,12 @@ public class AsistenciaAdapter extends ArrayAdapter<Asistencias> {
     }
     public View getView(int position, View convertView, ViewGroup parent){
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        View item = inflater.inflate(R.layout.listview_eventos,null);
+        View item = inflater.inflate(R.layout.listview_asistencia,null);
 
         TextView user = (TextView)item.findViewById(R.id.lblUsuarioAsistencia);
         user.setText(opciones.get(position).getNombreUser());
 
-        TextView evento = (TextView)item.findViewById(R.id.lblEventoNombreList);
+        TextView evento = (TextView)item.findViewById(R.id.lblEventoAsistencia);
         evento.setText(opciones.get(position).getNombreEvento());
 
         return (item);

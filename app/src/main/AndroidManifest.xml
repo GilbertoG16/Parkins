@@ -16,9 +16,6 @@
             android:name=".Admin.VerAsistencias"
             android:exported="false" />
         <activity
-            android:name=".Admin.RegistroEventos"
-            android:exported="false" />
-        <activity
             android:name=".Registro"
             android:exported="false" />
         <activity
